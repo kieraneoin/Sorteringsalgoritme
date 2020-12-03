@@ -4,11 +4,14 @@ int index = 0;
 
 void setup() {
   size(700, 700);
+sorter(index, liste);
+println(liste);
 }
 
 void draw() {
+  clear();
   display(index, liste);
-  sorter(index, liste);
+  
 }
 
 
@@ -23,12 +26,13 @@ void display(int index, int[] liste) {
 
 
 void sorter(int index, int[] liste) {
+  
   int tilf = int(random(0, 10));
   int vA = liste[index];
   int vB = liste[tilf];
-
-  println("vA "+vA);
-  println("vB "+vB);
+  
+  liste[tilf] = vA;
+  liste[index] = vB;
 
   if (index<liste.length-1) {
     sorter(index+1, liste);
